@@ -16,8 +16,17 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 入口界面
+ *
+ * @author GMY
+ * @mail 2275964276@qq.com
+ * @date 2015年6月2日
+ */
 public class MainActivity extends AppCompatActivity {
-    private RecordButton voiceButton;// 回复声音
+    //录音按钮
+    private RecordButton voiceButton;
+    //文件保存路径
     private String BasePath = Environment.getExternalStorageDirectory().toString() + "/voicerecord";
 
     @Override
@@ -27,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         voiceButton = (RecordButton) findViewById(R.id.record);
         // 录音事件监听
         voiceButton.setAudioRecord(new IRecordButton() {
-//            private String fileFolder = ;
             private String fileName;
             private AudioRecorder2Mp3Util audioRecoder;
             private boolean canClean = false;
@@ -38,15 +46,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void stop() {
                 Log.d("gmyboy", "------------stop-------------");
-
-                // Toast.makeText(QuestionDetailWithReplyActivity.this, "正在转换",
-                // Toast.LENGTH_SHORT).show();
                 audioRecoder.stopRecordingAndConvertFile();
-
-                // Toast.makeText(QuestionDetailWithReplyActivity.this, "ok",
-                // Toast.LENGTH_SHORT).show();
                 audioRecoder.cleanFile(AudioRecorder2Mp3Util.RAW);
-                // 如果要关闭可以
                 audioRecoder.close();
                 audioRecoder = null;
             }
@@ -94,10 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public double getAmplitude() {
-                // if (!isRecording) {
-                // return 0;
-                // }
-                // return recorder.getMaxAmplitude();
+                //这里就放了一个随机数
                 return Math.random() * 20000;
             }
 
@@ -110,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
                 File file = new File(getFilePath() + fileName + ".mp3");
                 if (file.exists())
                     file.delete();
-
             }
 
             /**
@@ -126,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * 获取当前系统时间作为音频文件名
+     * @return
+     */
     private String getCurrentDate() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HHmmss");
         Date curDate = new Date(System.currentTimeMillis());// 获取当前时间

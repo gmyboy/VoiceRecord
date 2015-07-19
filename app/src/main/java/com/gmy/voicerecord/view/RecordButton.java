@@ -55,22 +55,24 @@ public class RecordButton extends Button {
 
     public RecordButton(Context context) {
         super(context);
-        // TODO Auto-generated constructor stub
         init(context);
     }
 
     public RecordButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        // TODO Auto-generated constructor stub
         init(context);
     }
 
     public RecordButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        // TODO Auto-generated constructor stub
         init(context);
     }
 
+    /**
+     * 初始化相关组件
+     *
+     * @param context
+     */
     private void init(Context context) {
         mContext = context;
         this.setText("按住说话");
@@ -131,7 +133,6 @@ public class RecordButton extends Button {
     }
 
     // 录音Dialog图片随录音音量大小切换 (为了省事，就随机动了）
-
     private void setDialogImage() {
         if (voiceValue < 600.0) {
             dialogImg.setImageResource(R.mipmap.record_animate_01);
@@ -208,10 +209,8 @@ public class RecordButton extends Button {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        // TODO Auto-generated method stub
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: // 按下按钮
-
                 try {
                     if (recordState != RECORD_ON) {
                         showVoiceDialog(0);
@@ -235,19 +234,10 @@ public class RecordButton extends Button {
                 float moveY = event.getY();
                 if (downY - moveY > 50) {
                     isCanceled = true;
-                    // 暂定录音，及时暂停
-
-                    // try {
-                    // mRecordThread.wait();
-                    // } catch (InterruptedException e) {
-                    // e.printStackTrace();
-                    // }
                     showVoiceDialog(1);
                 }
                 if (downY - moveY < 20) {
                     isCanceled = false;
-                    // 重新开始录音 计时
-                    // mRecordThread.notify();
                     showVoiceDialog(0);
                 }
                 break;

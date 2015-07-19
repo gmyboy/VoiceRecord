@@ -23,8 +23,7 @@ import com.pocketdigi.utils.FLameUtils;
  * <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
  * <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
  * <uses-permission android:name="android.permission.RECORD_AUDIO" />
- * 
- * @author GMY
+ *
  * 
  */
 public class AudioRecorder2Mp3Util {

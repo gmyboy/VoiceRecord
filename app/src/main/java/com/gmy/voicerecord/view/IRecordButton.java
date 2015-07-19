@@ -1,11 +1,15 @@
 package com.gmy.voicerecord.view;
 
 /**
- * Created by Administrator on 2015/7/19.
+ * 录音按钮接口
+ *
+ * @author GMY
+ * @mail 2275964276@qq.com
+ * @date 2015年6月2日
  */
 public interface IRecordButton {
     /**
-     * 在这里进行录音准备工作，重置录音文件名等
+     * 录音准备工作，重置录音文件名等
      */
     public void ready();
 
