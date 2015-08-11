@@ -1,3 +1,5 @@
+[![Android Gems](http://www.android-gems.com/badge/gmyboy/VoiceRecord.svg?branch=master)](http://www.android-gems.com/lib/gmyboy/VoiceRecord)
+
 ## VoiceRecord
 A recording module, provided the recording, the turn into MP3, the preservation of the local and other functions
 
